@@ -6,13 +6,13 @@
 /*   By: gsaile <gsaile@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 11:51:53 by gsaile            #+#    #+#             */
-/*   Updated: 2023/02/18 12:24:41 by gsaile           ###   ########.fr       */
+/*   Updated: 2023/02/18 13:05:31 by gsaile           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-int	main()
+int	main( void )
 {
 	std::cout << "N = 12:" << std::endl;
 	Zombie	*horde = zombieHorde(12, "Mike");
