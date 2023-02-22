@@ -6,7 +6,7 @@
 /*   By: gsaile <gsaile@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:34:15 by gsaile            #+#    #+#             */
-/*   Updated: 2023/02/22 11:08:20 by gsaile           ###   ########.fr       */
+/*   Updated: 2023/02/22 11:48:46 by gsaile           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Fixed::Fixed()
 	this->_value = 0;
 }
 
-Fixed::Fixed( Fixed &b )
+Fixed::Fixed( Fixed const &b )
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = b;
