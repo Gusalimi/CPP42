@@ -6,7 +6,7 @@
 /*   By: gsaile <gsaile@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:15:57 by gsaile            #+#    #+#             */
-/*   Updated: 2023/02/22 11:57:43 by gsaile           ###   ########.fr       */
+/*   Updated: 2023/03/10 16:13:26 by gsaile           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ int main( void ) {
 
 	a = Fixed( 1234.4321f );
 
-	// std::cout << "a is " << a << std::endl;
-	// std::cout << "b is " << b << std::endl;
-	// std::cout << "c is " << c << std::endl;
-	// std::cout << "d is " << d << std::endl;
-	a.toFloat();
-	b.toFloat();
-	c.toFloat();
-	d.toFloat();
+	std::cout << "a is " << a << std::endl;
+	std::cout << "b is " << b << std::endl;
+	std::cout << "c is " << c << std::endl;
+	std::cout << "d is " << d << std::endl;
+	// a.toFloat();
+	// b.toFloat();
+	// c.toFloat();
+	// d.toFloat();
 
 	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
 	std::cout << "b is " << b.toInt() << " as integer" << std::endl;

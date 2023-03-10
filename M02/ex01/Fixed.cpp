@@ -6,7 +6,7 @@
 /*   By: gsaile <gsaile@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:34:15 by gsaile            #+#    #+#             */
-/*   Updated: 2023/02/22 12:40:45 by gsaile           ###   ########.fr       */
+/*   Updated: 2023/03/10 16:13:12 by gsaile           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Fixed::Fixed( int const value )
 
 Fixed::Fixed( float const value )
 {
-	this->_value = ((int)roundf(value) << Fixed::_fractBits) + (value - (int)value);
+	this->_value = roundf(value * pow(2, Fixed::_fractBits));
 }
 
 Fixed::~Fixed()
@@ -57,18 +57,11 @@ int	Fixed::toInt( void ) const
 	return (this->_value >> Fixed::_fractBits);
 }
 
+#include <bitset>
 float	Fixed::toFloat( void ) const
 {
-	float	result = 0;
-	int	tmp = this->_value;
-	std::cout << "tmp = " << tmp << std::endl;
-	for (int i = Fixed::_fractBits; i > 0; i--)
-	{
-		result += (tmp & Fixed::_fractBits - i) * pow(2, (double)-i);
-		std::cout << "i = " << i << " | tmp = " << tmp << " | tmp & 1 = " << (tmp & Fixed::_fractBits - i) << " | pow = " << (tmp & 1) * pow(2, (double)-i) << std::endl;
-		tmp = tmp >> 1;
-	}
-	std::cout << "result = " << result << std::endl;
+	float result;
+	result = (1.0f * (int)this->_value) / pow(2, Fixed::_fractBits);
 	return (result); 
 }
 
