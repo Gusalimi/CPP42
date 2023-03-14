@@ -6,11 +6,19 @@
 /*   By: gsaile <gsaile@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:34:15 by gsaile            #+#    #+#             */
-/*   Updated: 2023/03/10 16:13:12 by gsaile           ###   ########.fr       */
+/*   Updated: 2023/03/14 14:10:01 by gsaile           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
+int	ft_pow(int base, int exp)
+{
+	int	result = 1;
+	for (int i = 0; i < exp; i++)
+		result *= base;
+	return (result);
+}
 
 const int Fixed::_fractBits = 8;
 Fixed::Fixed()
@@ -27,12 +35,14 @@ Fixed::Fixed( Fixed const &b )
 
 Fixed::Fixed( int const value )
 {
+	std::cout << "Int constructor called" << std::endl;
 	this->_value = value << Fixed::_fractBits;
 }
 
 Fixed::Fixed( float const value )
 {
-	this->_value = roundf(value * pow(2, Fixed::_fractBits));
+	std::cout << "Float constructor called" << std::endl;
+	this->_value = roundf(value * ft_pow(2, Fixed::_fractBits));
 }
 
 Fixed::~Fixed()
@@ -42,13 +52,11 @@ Fixed::~Fixed()
 
 int		Fixed::getRawBits( void ) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
 	return (this->_value);
 }
 
 void	Fixed::setRawBits( int const raw )
 {
-	std::cout << "setRawBits member function called" << std::endl;
 	this->_value = raw;
 }
 
@@ -61,7 +69,7 @@ int	Fixed::toInt( void ) const
 float	Fixed::toFloat( void ) const
 {
 	float result;
-	result = (1.0f * (int)this->_value) / pow(2, Fixed::_fractBits);
+	result = (1.0f * (int)this->_value) / ft_pow(2, Fixed::_fractBits);
 	return (result); 
 }
 

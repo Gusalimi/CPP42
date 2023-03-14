@@ -4,6 +4,8 @@
 #include <iostream>
 #include <cmath>
 
+int	ft_pow(int base, int exp);
+
 class Fixed
 {
 public:
