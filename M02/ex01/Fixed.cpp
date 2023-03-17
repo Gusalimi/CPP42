@@ -6,7 +6,7 @@
 /*   By: gsaile <gsaile@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:34:15 by gsaile            #+#    #+#             */
-/*   Updated: 2023/03/14 14:10:01 by gsaile           ###   ########.fr       */
+/*   Updated: 2023/03/17 14:01:42 by gsaile           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ int	Fixed::toInt( void ) const
 	return (this->_value >> Fixed::_fractBits);
 }
 
-#include <bitset>
 float	Fixed::toFloat( void ) const
 {
 	float result;

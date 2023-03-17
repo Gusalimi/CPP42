@@ -6,7 +6,7 @@
 /*   By: gsaile <gsaile@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:15:57 by gsaile            #+#    #+#             */
-/*   Updated: 2023/03/14 16:12:11 by gsaile           ###   ########.fr       */
+/*   Updated: 2023/03/17 14:05:29 by gsaile           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ int main( void ) {
 
 	std::cout << b << std::endl;
 
-	//std::cout << Fixed::max( a, b ) << std::endl;
+	std::cout << Fixed::max( a, b ) << std::endl;
 	return 0;
 }

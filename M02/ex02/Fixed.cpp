@@ -23,31 +23,26 @@ int	ft_pow(int base, int exp)
 const int Fixed::_fractBits = 8;
 Fixed::Fixed()
 {
-	std::cout << "Default constructor called" << std::endl;
 	this->_value = 0;
 }
 
 Fixed::Fixed( Fixed const &b )
 {
-	std::cout << "Copy constructor called" << std::endl;
 	*this = b;
 }
 
 Fixed::Fixed( int const value )
 {
-	std::cout << "Int constructor called" << std::endl;
 	this->_value = value << Fixed::_fractBits;
 }
 
 Fixed::Fixed( float const value )
 {
-	std::cout << "Float constructor called" << std::endl;
 	this->_value = roundf(value * ft_pow(2, Fixed::_fractBits));
 }
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
 }
 
 int		Fixed::getRawBits( void ) const
@@ -65,7 +60,6 @@ int	Fixed::toInt( void ) const
 	return (this->_value >> Fixed::_fractBits);
 }
 
-#include <bitset>
 float	Fixed::toFloat( void ) const
 {
 	float result;
@@ -73,9 +67,18 @@ float	Fixed::toFloat( void ) const
 	return (result); 
 }
 
+Fixed const & Fixed::max(Fixed const & x, Fixed const & y)
+{
+	return (x.toFloat() > y.toFloat() ? x : y);
+}
+
+Fixed & Fixed::max(Fixed & x, Fixed & y)
+{
+	return (x.toFloat() > y.toFloat() ? x : y);
+}
+
 Fixed & Fixed::operator=( Fixed const &rhs )
 {
-	std::cout << "Copy assignment operator called" << std::endl;
 	this->_value = rhs.getRawBits();
 	return *this;
 }
@@ -136,11 +139,12 @@ Fixed & Fixed::operator++()
 	return (*this);
 }
 
-Fixed & Fixed::operator++(int i)
+Fixed Fixed::operator++(int i)
 {
+	Fixed tmp = *this;
 	(void)i;
-	this->_value++; 
-	return (*this);
+	++(*this);
+	return (tmp);
 }
 
 std::ostream & operator<<( std::ostream & o, Fixed const & rhs )
