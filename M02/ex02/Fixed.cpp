@@ -77,6 +77,16 @@ Fixed & Fixed::max(Fixed & x, Fixed & y)
 	return (x.toFloat() > y.toFloat() ? x : y);
 }
 
+Fixed const & Fixed::min(Fixed const & x, Fixed const & y)
+{
+	return (x.toFloat() < y.toFloat() ? x : y);
+}
+
+Fixed & Fixed::min(Fixed & x, Fixed & y)
+{
+	return (x.toFloat() < y.toFloat() ? x : y);
+}
+
 Fixed & Fixed::operator=( Fixed const &rhs )
 {
 	this->_value = rhs.getRawBits();
@@ -144,6 +154,20 @@ Fixed Fixed::operator++(int i)
 	Fixed tmp = *this;
 	(void)i;
 	++(*this);
+	return (tmp);
+}
+
+Fixed & Fixed::operator--()
+{
+	--this->_value; 
+	return (*this);
+}
+
+Fixed Fixed::operator--(int i)
+{
+	Fixed tmp = *this;
+	(void)i;
+	--(*this);
 	return (tmp);
 }
 
