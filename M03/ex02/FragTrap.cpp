@@ -10,7 +10,7 @@ FragTrap::FragTrap()
 	this->_damage = 30;
 }
 
-FragTrap::FragTrap(std::string name)
+FragTrap::FragTrap(std::string name): ClapTrap(name)
 {
 	std::cout << "FragTrap Constructor called" << std::endl;
 	this->_name = name;
