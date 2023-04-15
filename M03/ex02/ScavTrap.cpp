@@ -27,6 +27,16 @@ ScavTrap::ScavTrap(const ScavTrap& b)
 
 ScavTrap::~ScavTrap() { std::cout << "ScavTrap Destructor called" << std::endl; }
 
+ScavTrap& ScavTrap::operator=(const ScavTrap& rhs)
+{
+	std::cout << "ScavTrap copy assignment operator called" << std::endl;
+	this->_name = rhs._name;
+	this->_hp = rhs._hp;
+	this->_energy = rhs._energy;
+	this->_damage = rhs._damage;
+	return (*this);
+}
+
 void	ScavTrap::attack(const std::string& target)
 {
 	if (this->_hp > 0)
