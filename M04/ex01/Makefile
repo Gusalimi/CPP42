@@ -6,11 +6,11 @@
 #    By: gsaile <gsaile@student.42mulhouse.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/25 18:56:37 by mmetzger          #+#    #+#              #
-#    Updated: 2023/04/15 17:21:46 by gsaile           ###   ########.fr        #
+#    Updated: 2023/04/20 14:31:23 by gsaile           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= Polymorphism
+NAME		= Brain
 
 CC			= c++
 FLAGS		= -Wall -Werror -Wextra -std=c++98
@@ -18,7 +18,7 @@ RM			= rm -rf
 
 OBJDIR = .objFiles
 
-FILES		= main Animal Cat Dog WrongAnimal WrongCat
+FILES		= main Animal Cat Dog WrongAnimal WrongCat Brain
 
 SRC			= $(FILES:=.cpp)
 OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
