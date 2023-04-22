@@ -1,0 +1,4 @@
+#ifndef I_CHARACTER_HPP
+#define I_CHARACTER_HPP
+
+#endif //I_CHARACTER_HPP
