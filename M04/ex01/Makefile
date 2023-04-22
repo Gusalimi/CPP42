@@ -6,7 +6,7 @@
 #    By: gsaile <gsaile@student.42mulhouse.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/25 18:56:37 by mmetzger          #+#    #+#              #
-#    Updated: 2023/04/20 14:31:23 by gsaile           ###   ########.fr        #
+#    Updated: 2023/04/22 16:26:18 by gsaile           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,7 @@ clean:
 	@printf "$(YELLOW)    - Object files removed.$(RESET)\n"
 
 fclean: clean
-	@$(RM) $(NAME)
+	@$(RM) $(NAME) *.dSYM
 	@printf "$(YELLOW)    - Executable removed.$(RESET)\n"
 
 re: fclean all

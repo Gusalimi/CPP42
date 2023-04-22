@@ -5,7 +5,7 @@
 int main()
 {
 	Animal* tab[10];
-	Animal* j;
+	Animal* j = new Cat();
 
 	for (int i = 0; i < 5; i++)
 		tab[i] = new Dog();
@@ -13,6 +13,11 @@ int main()
 		tab[i] = new Cat();
 	for (int i = 0; i < 10; i++)
 		std::cout << "tab[" << i << "]->type = " << tab[i]->getType() << std::endl;
+
+	std::cout << "j->type = " << j->getType() << std::endl;
+	delete j;
+	j = tab[2];
+	std::cout << "j->type = " << j->getType() << std::endl;
 
 	for (int i = 0; i < 10; i++)
 		delete (tab[i]);
