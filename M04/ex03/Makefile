@@ -6,11 +6,11 @@
 #    By: gsaile <gsaile@student.42mulhouse.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/25 18:56:37 by mmetzger          #+#    #+#              #
-#    Updated: 2023/04/22 16:39:35 by gsaile           ###   ########.fr        #
+#    Updated: 2023/04/28 16:17:48 by gsaile           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= Abstract
+NAME		= Interface
 
 CC			= c++
 FLAGS		= -Wall -Werror -Wextra -std=c++98
@@ -18,7 +18,7 @@ RM			= rm -rf
 
 OBJDIR = .objFiles
 
-FILES		= main AMateria Character Cure Ice ICharacter IMateriaSource MateriaSource
+FILES		= main AMateria Character Cure Ice MateriaSource
 
 SRC			= $(FILES:=.cpp)
 OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))

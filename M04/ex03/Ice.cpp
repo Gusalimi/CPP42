@@ -1,13 +1,16 @@
 #include "Ice.hpp"
 
-Ice::Ice()
+#include "ICharacter.hpp"
+
+Ice::Ice(): AMateria("ice")
 {
 	std::cout << "Ice constructor called" << std::endl;
 	this->_type = "ice";
 }
 
-Ice::Ice(const Ice& b)
+Ice::Ice(const Ice& b): AMateria("ice")
 {
+	(void)b;
 	std::cout << "Ice copy constructor called" << std::endl;
 	this->_type = "ice";
 }
@@ -19,8 +22,10 @@ Ice::~Ice()
 
 Ice& Ice::operator=(const Ice& rhs)
 {
+	(void)rhs;
 	std::cout << "Ice copy assignment operator called" << std::endl;
 	this->_type = "ice";
+	return (*this);
 }
 
 Ice* Ice::clone() const
@@ -30,5 +35,5 @@ Ice* Ice::clone() const
 
 void Ice::use(ICharacter& target)
 {
-	std::cout << "* shoots an ice bolt at " << target.getName() << " *";
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

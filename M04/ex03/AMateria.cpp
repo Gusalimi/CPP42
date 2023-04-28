@@ -20,4 +20,7 @@ AMateria& AMateria::operator=(const AMateria& rhs)
 {
 	std::cout << "AMateria copy assignment operator called" << std::endl;
 	this->_type = rhs._type;
+	return (*this);
 }
+
+void AMateria::use(ICharacter& target) { (void)target; }

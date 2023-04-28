@@ -40,7 +40,13 @@ Character& Character::operator=(const Character& rhs)
 		if (this->_inventory[i])
 			delete this->_inventory[i];
 	for (int i = 0; i < 4; i++)
-		this->_inventory[i] = rhs._inventory[i]->clone();
+	{
+		if (rhs._inventory[i])
+			this->_inventory[i] = rhs._inventory[i]->clone();
+		else
+			this->_inventory[i] = nullptr;
+	}
+	return (*this);
 }
 
 std::string const & Character::getName() const { return this->_name; }
