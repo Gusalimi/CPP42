@@ -25,7 +25,7 @@ Ice& Ice::operator=(const Ice& rhs)
 
 Ice* Ice::clone() const
 {
-	return (new Ice());
+	return (new Ice(*this));
 }
 
 void Ice::use(ICharacter& target)
