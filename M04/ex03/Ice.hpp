@@ -15,12 +15,4 @@ public:
 	void use(ICharacter& target);
 };
 
-Ice::Ice(/* args */)
-{
-}
-
-Ice::~Ice()
-{
-}
-
 #endif //ICE_HPP
