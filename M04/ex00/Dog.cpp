@@ -3,7 +3,7 @@
 Dog::Dog()
 {
 	std::cout << "Dog default constructor called" << std::endl;
-	this->type = "Dog";
+	this->_type = "Dog";
 }
 
 Dog::Dog(const Dog& b)
@@ -17,7 +17,7 @@ Dog::~Dog() { std::cout << "Dog destructor called" << std::endl; }
 Dog& Dog::operator=(const Dog& rhs)
 {
 	std::cout << "Dog copy assignment operator called" << std::endl;
-	this->type = rhs.type;
+	this->_type = rhs._type;
 	return (*this);
 }
 
