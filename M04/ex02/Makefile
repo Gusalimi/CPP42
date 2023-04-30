@@ -5,15 +5,15 @@
 #                                                     +:+ +:+         +:+      #
 #    By: gsaile <gsaile@student.42mulhouse.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/03/25 18:56:37 by mmetzger          #+#    #+#              #
-#    Updated: 2023/04/22 16:28:50 by gsaile           ###   ########.fr        #
+#    Created: 2023/03/25 18:56:37 by gsaile            #+#    #+#              #
+#    Updated: 2023/04/30 18:08:57 by gsaile           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= Abstract
 
 CC			= c++
-FLAGS		= -Wall -Werror -Wextra -std=c++98
+CFLAGS		= -Wall -Werror -Wextra -std=c++98
 RM			= rm -rf
 
 OBJDIR = .objFiles
@@ -40,12 +40,12 @@ endif
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@$(CC) $(OBJ) $(OPTS) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJ) $(OPTS) -o $(NAME)
 	@printf "$(_SUCCESS) $(GREEN)- Executable ready.\n$(RESET)"
 
 $(OBJDIR)/%.o: %.cpp
 	@mkdir -p $(dir $@)
-	@$(CC) $(FLAGS) $(OPTS) -c $< -o $@
+	@$(CC) $(CFLAGS) $(OPTS) -c $< -o $@
 
 clean:
 	@$(RM) $(OBJDIR) $(OBJ)
