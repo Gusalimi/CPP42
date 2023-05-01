@@ -65,11 +65,13 @@ void Character::equip(AMateria* m)
 
 void Character::unequip(int idx)
 {
-	this->_inventory[idx] = nullptr;
+	if (idx >= 0 && idx < 4)
+		this->_inventory[idx] = nullptr;
 }
 
 void Character::use(int idx, ICharacter& target)
 {
-	if (this->_inventory[idx])
-		this->_inventory[idx]->use(target);
+	if (idx >= 0 && idx < 4)
+		if (this->_inventory[idx])
+			this->_inventory[idx]->use(target);
 }
