@@ -26,6 +26,8 @@ int main()
 	k->makeSound();
 	delete wa;
 	delete k;
+	WrongCat a;
+	a.makeSound();
 
 	return 0;
 }
