@@ -61,8 +61,10 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
                     ;%@@@@%::;.\n\
                    ;%@@@@%%:;;;.\n\
                ...;%@@@@@%%:;;;;,..";
-	if (!this->Form::isSigned() || executor.getGrade() > this->Form::getGradeToExecute())
+ 	if (executor.getGrade() > this->Form::getGradeToExecute())
 		throw Form::GradeTooLowException();
+	else if (!this->Form::isSigned())
+		throw std::exception();
 	else
 	{
 		ofs.open(this->_target + "_shrubbery");
