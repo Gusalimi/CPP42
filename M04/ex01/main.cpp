@@ -22,5 +22,15 @@ int main()
 	for (int i = 0; i < 10; i++)
 		delete (tab[i]);
 
+	Dog basic;
+	{
+		Dog tmp = basic;
+	}
+	Cat basic2;
+	{
+		Cat tmp2 = basic2;
+	}
+
+
 	return 0;
 }
