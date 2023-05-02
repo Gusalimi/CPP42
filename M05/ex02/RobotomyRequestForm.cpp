@@ -1,12 +1,12 @@
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(): Form("Presidential pardon", 25, 5)
+RobotomyRequestForm::RobotomyRequestForm(): Form("robotomy request", 72, 45)
 {
 	std::cout << "RobotomyRequestForm default constructor called" << std::endl;
 	this->_target = "default";
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target): Form("Presidential pardon", 25, 5)
+RobotomyRequestForm::RobotomyRequestForm(std::string target): Form("robotomy request", 72, 45)
 {
 	std::cout << "RobotomyRequestForm constructor called" << std::endl;
 	this->_target = target;

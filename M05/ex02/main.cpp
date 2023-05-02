@@ -15,7 +15,7 @@ int main()
 
 	std::cout << std::endl;
 
-	b2.executeForm(rrf);
+	b3.executeForm(rrf);
 	b1.signForm(rrf);
 	b2.executeForm(rrf);
 	b3.executeForm(rrf);
