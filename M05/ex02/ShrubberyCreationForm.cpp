@@ -74,5 +74,6 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 			return ;
 		}
 		ofs << tree << std::endl;
+		ofs.close();
 	}
 }
