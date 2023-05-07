@@ -68,7 +68,7 @@ int main(int argc, char **argv)
 		}
 		catch (const std::out_of_range& e)
 		{
-			std::cerr << "Number too big" << std::endl;
+			std::cerr << "Number out of range" << std::endl;
 		}
 	}
 	else if (isANumber(s) == 2 || s == "-inf" || s == "+inf" || s == "nan")
@@ -96,18 +96,46 @@ int main(int argc, char **argv)
 					std::cout << ".0";
 				std::cout << "f" << std::endl;
 			}
-			std::cout << "double: " << std::setprecision(std::numeric_limits<double>::digits10) << std::fixed << d;
-			// if (d - static_cast<int>(d) == 0)
-			// 	std::cout << ".0";
+			std::cout << "double: " << d;
+			if (d - static_cast<int>(d) == 0)
+				std::cout << ".0";
 			std::cout << std::endl;
 		}
 		catch (const std::out_of_range& e)
 		{
-			std::cerr << "Number too big" << std::endl;
+			std::cerr << "Number out of range" << std::endl;
 		}
 	}
 	else if (isANumber(s) == 3 || s == "-inff" || s == "+inff" || s == "nanf")
-		std::cout << "float" << std::endl;
+	{
+		try
+		{
+			float f = std::stof(s);
+			std::cout << "char: ";
+			if (f < 0 || f > 127)
+				std::cout << "impossible" << std::endl;
+			else if (f < 32 || f == 127)
+				std::cout << "Non displayable" << std::endl;
+			else
+				std::cout << "'" << static_cast<char>(f) << "'" << std::endl;
+			if (f > std::numeric_limits<int>::max() || f < std::numeric_limits<int>::min())
+				std::cout << "int: impossible" << std::endl;
+			else
+				std::cout << "int: " << static_cast<int>(f) << std::endl;
+			std::cout << "float: " << f;
+			if (f - static_cast<int>(f) == 0)
+				std::cout << ".0";
+			std::cout << "f" << std::endl;
+			std::cout << "double: " << static_cast<double>(f);
+			if (f - static_cast<int>(f) == 0)
+				std::cout << ".0";
+			std::cout << std::endl;
+		}
+		catch (const std::out_of_range& e)
+		{
+			std::cerr << "Number out of range" << std::endl;
+		}
+	}
 	else
 		std::cerr << "Unrecognised format" << std::endl;
 }
