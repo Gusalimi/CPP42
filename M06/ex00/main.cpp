@@ -8,6 +8,7 @@ int isANumber(std::string s)
 	int i = 0;
 	bool	has_point = false;
 	bool	is_float = false;
+	bool	is_scientific = false;
 	if (s[0] == '-' || s[0] == '+')
 		i++;
 	while (s[i])
@@ -16,7 +17,9 @@ int isANumber(std::string s)
 		{
 			if (s[i] == '.' && !has_point)
 				has_point = true;
-			else if (has_point && s[i] == 'f' && !s[i + 1])
+			else if (has_point && std::tolower(s[i]) == 'e' && !is_scientific)
+				is_scientific = true;
+			else if (has_point && std::tolower(s[i]) == 'f' && !s[i + 1])
 				is_float = true;
 			else
 				return (0);
