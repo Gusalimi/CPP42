@@ -13,8 +13,8 @@ int main()
 	for (int i = 0; i < 10; i++)
 	{
 		v.push_back(i);
-		l.push_back(i);
-		d.push_back(i);
+		l.push_back(i + 1);
+		d.push_back(i + 2);
 	}
 
 	std::cout << "vector: ";
