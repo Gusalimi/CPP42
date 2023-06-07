@@ -19,7 +19,7 @@ class Array {
 			this->_array = new T[src.size()];
 			this->_size = src.size();
 			for (unsigned int i = 0; i < this->_size; i++)
-				this->_array[i] = static_cast<T>(src[i]);
+				this->_array[i] = src[i];
 		}
 		~Array<T>()
 		{
@@ -34,7 +34,7 @@ class Array {
 				this->_array = new T[src.size()];
 				this->_size = src.size();
 				for (unsigned int i = 0; i < this->_size; i++)
-					this->_array[i] = static_cast<T>(src[i]);
+					this->_array[i] = src[i];
 			}
 			return *this;
 		}
