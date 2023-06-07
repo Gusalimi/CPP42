@@ -33,23 +33,24 @@ void identify(Base* p)
 
 void identify(Base& p)
 {
+	// Remove the unused variable warning
+	Base a;
+	Base& b = a;
+
 	try {
-		A& a = static_cast<A&>(p);
-		(void)a;
+		b = dynamic_cast<A&>(p);
 		std::cout << "A" << std::endl;
 	}
 	catch(std::exception e)
 	{}
 	try {
-		B& b = dynamic_cast<B&>(p);
-		(void)b;
+		b = dynamic_cast<B&>(p);
 		std::cout << "B" << std::endl;
 	}
 	catch(std::exception e)
 	{}
 	try {
-		C& c = dynamic_cast<C&>(p);
-		(void)c;
+		b = dynamic_cast<C&>(p);
 		std::cout << "C" << std::endl;
 	}
 	catch(std::exception e)
