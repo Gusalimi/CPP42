@@ -38,17 +38,16 @@ int Span::shortestSpan()
 {
 	if (this->_numbers.size() <= 1)
 		throw Span::EmptySpanException();
-	int	shortest_span = -1;
-	for (std::vector<int>::const_iterator it = this->_numbers.begin(); it != this->_numbers.end(); it++)
+	std::vector<int> tmp = this->_numbers;
+	std::sort(tmp.begin(), tmp.end());
+	std::vector<int>::iterator it = tmp.begin();
+	int shortest = std::abs(*it - *(it + 1));
+	for (; it != tmp.end() - 1; it++)
 	{
-		for (std::vector<int>::const_iterator it2 = it + 1; it2 != this->_numbers.end(); it2++)
-		{
-			int span = std::abs(*it - *it2);
-			if (shortest_span == -1 || span < shortest_span)
-				shortest_span = span;
-		}
+		if (std::abs(*it - *(it + 1)) < shortest)
+			shortest = std::abs(*it - *(it + 1));
 	}
-	return (shortest_span);
+	return (shortest);
 }
 
 int Span::longestSpan()
