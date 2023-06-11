@@ -36,9 +36,24 @@ int main()
 	std::cout << "easyfind(l, 5): " << easyfind(l, 5) << std::endl;
 	std::cout << "easyfind(d, 5): " << easyfind(d, 5) << std::endl;
 
-	std::cout << "easyfind(v, 42): " << easyfind(v, 42) << std::endl;
-	std::cout << "easyfind(l, 42): " << easyfind(l, 42) << std::endl;
-	std::cout << "easyfind(d, 42): " << easyfind(d, 42) << std::endl;
+	try {
+		std::cout << "easyfind(v, 42): " << easyfind(v, 42) << std::endl;
+	}
+	catch (std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
+	try {
+		std::cout << "easyfind(l, 42): " << easyfind(l, 42) << std::endl;
+	}
+	catch (std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
+	try {
+		std::cout << "easyfind(d, 42): " << easyfind(d, 42) << std::endl;
+	}
+	catch (std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
 
 	return 0;
 }

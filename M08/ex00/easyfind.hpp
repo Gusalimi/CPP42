@@ -1,23 +1,15 @@
 #ifndef EASYFIND_HPP
 #define EASYFIND_HPP
 
-//#include <list>
+#include <algorithm>
 
-template<typename T>
-int easyfind(T const &container, int const &value)
+template <typename T>
+int easyfind(T &container, int value)
 {
-	int	i = 0;
-	typename T::const_iterator it = container.begin();
-	typename T::const_iterator ite = container.end();
-
-	while (it != ite)
-	{
-		if (*it == value)
-			return (i);
-		i++;
-		it++;
-	}
-	return (-1);
+	typename T::iterator it = std::find(container.begin(), container.end(), value);
+	if (it == container.end())
+		throw std::exception();
+	return std::distance(container.begin(), it);
 }
 
 #endif /* EASYFIND_HPP */
