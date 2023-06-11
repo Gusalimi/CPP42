@@ -24,6 +24,7 @@ int main()
 		std::cout << *it << std::endl;
 		++it;
 	}
+	std::cout << mstack.size() << std::endl;
 	std::stack<int> s(mstack);
 	
 	std::cout << std::endl;
@@ -48,5 +49,6 @@ int main()
 		std::cout << *it2 << std::endl;
 		++it2;
 	}
+	std::cout << list.size() << std::endl;
 	return 0;
 }
