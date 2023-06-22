@@ -6,7 +6,7 @@
 #    By: gsaile <gsaile@student.42mulhouse.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/25 18:56:37 by gsaile            #+#    #+#              #
-#    Updated: 2023/05/29 15:32:13 by gsaile           ###   ########.fr        #
+#    Updated: 2023/06/22 19:15:47 by gsaile           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) $(OBJ) $(OPTS) -o $(NAME)
-	@printf "$(_SUCCESS) $(GREEN)- Executable ready.\n$(RESET)"
+	@printf "$(GREEN)- Executable ready.\n$(RESET)"
 
 $(OBJDIR)/%.o: %.cpp
 	@mkdir -p $(dir $@)
@@ -49,10 +49,10 @@ $(OBJDIR)/%.o: %.cpp
 
 clean:
 	@$(RM) $(OBJDIR) $(OBJ)
-	@printf "$(YELLOW)    - Object files removed.$(RESET)\n"
+	@printf "$(YELLOW)- Object files removed.$(RESET)\n"
 
 fclean: clean
 	@$(RM) $(NAME) *.dSYM
-	@printf "$(YELLOW)    - Executable removed.$(RESET)\n"
+	@printf "$(YELLOW)- Executable removed.$(RESET)\n"
 
 re: fclean all
