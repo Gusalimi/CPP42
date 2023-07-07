@@ -6,7 +6,7 @@
 #    By: gsaile <gsaile@student.42mulhouse.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/25 18:56:37 by gsaile            #+#    #+#              #
-#    Updated: 2023/06/12 16:39:30 by gsaile           ###   ########.fr        #
+#    Updated: 2023/07/07 22:25:26 by gsaile           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ CURSIVE		=	\e[33;3m
 
 #Debug 
 ifeq ($(DEBUG), 1)
-   OPTS = -g
+   OPTS = -g3 -fsanitize=address
 endif
 
 .PHONY: all clean fclean re bonus norm

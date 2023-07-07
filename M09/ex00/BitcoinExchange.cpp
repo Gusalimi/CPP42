@@ -1,72 +1,40 @@
 #include "BitcoinExchange.hpp"
 
 BitcoinExchange::BitcoinExchange() {}
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &b) { (void)b; }
+BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &rhs) { (void)rhs; return (*this); }
+BitcoinExchange::~BitcoinExchange() {}
 
-BitcoinExchange::BitcoinExchange(std::string const &filename)
+BitcoinExchange::BitcoinExchange(std::string filename)
 {
 	std::ifstream file(filename);
+	std::string line;
+	std::string date;
+	std::string value;
+
 	if (!file.is_open())
 		throw std::runtime_error("Could not open file");
-	std::string line;
 	std::getline(file, line);
 	while (std::getline(file, line))
 	{
 		std::stringstream ss(line);
-		std::string date;
-		std::string price;
 		std::getline(ss, date, ',');
-		std::getline(ss, price);
-		_prices[date] = std::stod(price);
+		std::getline(ss, value);
+		_database[date] = std::stod(value);
 	}
-	file.close();
 }
 
-BitcoinExchange::BitcoinExchange(BitcoinExchange const &other)
+double BitcoinExchange::convert(std::string date, double amount)
 {
-	*this = other;
-}
-
-BitcoinExchange::~BitcoinExchange() {}
-BitcoinExchange &BitcoinExchange::operator=(BitcoinExchange const &other)
-{
-	_prices = other._prices;
-	return *this;
-}
-
-double BitcoinExchange::convert(std::string line) const
-{
-	/* TODO:
-	Each line in this file must use the following format: "date | value".
-	• A valid date will always be in the following format: Year-Month-Day.
-	• A valid value must be either a float or a positive integer between 0 and 1000.
-	If the date used in the input does not exist in your DB then you must use the closest date contained in your DB. Be careful to use the lower date and not the upper one.
-	You have to use the c++98 standard for this exercise.
-	*/
-	std::stringstream ss(line);
-	std::string date;
-	std::string value;
-	std::getline(ss, date, '|');
-	std::getline(ss, value);
-	if (date.empty() || value.empty())
-		throw std::runtime_error("Invalid input1");
-	if (_prices.find(date) == _prices.end())
+	std::map<std::string, double>::iterator it = _database.find(date);
+	if (it == _database.end())
 	{
-		std::map<std::string, double>::const_iterator it = _prices.lower_bound(date);
-		if (it == _prices.begin())
-			throw std::runtime_error("Invalid input2");
-		it--;
-		if (std::stod(value) < 0)
-			throw std::runtime_error("Error: not a positive number.");
-		else if (std::stod(value) > 1000)
-			throw std::runtime_error("Error: too large a number.");
-		return std::stod(value) * it->second;
+		std::map<std::string, double>::iterator it2 = _database.begin();
+		while (it2 != _database.end() && it2->first < date)
+			it2++;
+		if (it2 == _database.begin())
+			throw std::runtime_error("No data for this date");
+		it = --it2;
 	}
-	else
-	{
-		if (std::stod(value) < 0)
-			throw std::runtime_error("Error: not a positive number.");
-		else if (std::stod(value) > 1000)
-			throw std::runtime_error("Error: too large a number.");
-		return std::stod(value) * _prices.at(date);
-	}
+	return (amount * it->second);
 }
