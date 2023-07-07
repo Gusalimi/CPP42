@@ -12,8 +12,8 @@ class BitcoinExchange
 		std::map<std::string, double> _database;
 
 		BitcoinExchange();
-		BitcoinExchange(const BitcoinExchange &other);
-		BitcoinExchange &operator=(const BitcoinExchange &other);
+		BitcoinExchange(const BitcoinExchange &b);
+		BitcoinExchange &operator=(const BitcoinExchange &rhs);
 	public:
 		BitcoinExchange(std::string filename);
 		~BitcoinExchange();

@@ -12,12 +12,12 @@ bool isValidDateFormat(std::string date)
 
 int main(int argc, char **argv)
 {
-	if (argc != 2)
-	{
-		std::cout << "Usage: ./bitcoin [input]" << std::endl;
+	try {
+		BitcoinExchange exchange("data.csv");
+	} catch (std::exception &e) {
+		std::cout << "Error: " << e.what() << std::endl;
 		return 1;
 	}
-	BitcoinExchange exchange("data.csv");
 	std::ifstream file(argv[1]);
 	std::string ignore;
 	std::string line;
@@ -25,6 +25,12 @@ int main(int argc, char **argv)
 	std::string value;
 	double value_d;
 	double convert;
+
+	if (argc != 2)
+	{
+		std::cout << "Usage: ./bitcoin [input]" << std::endl;
+		return 1;
+	}
 
 	if (!file.is_open())
 		throw std::runtime_error("Could not open file");
